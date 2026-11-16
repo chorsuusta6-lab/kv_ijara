@@ -1,13 +1,13 @@
 {
   "name": "Kvartira Boshqaruv",
   "short_name": "Kvartira",
-  "description": "Ijarachilar va to'lovlarni boshqarish",
+  "description": "Ijarachilar va to'lovlarni boshqarish tizimi",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#1e40af",
-  "theme_color": "#1e40af",
+  "background_color": "#4f46e5",
+  "theme_color": "#4f46e5",
   "lang": "uz",
   "dir": "ltr",
   "icons": [
