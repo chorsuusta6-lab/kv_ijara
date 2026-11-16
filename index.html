@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="uz" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#1e40af" id="themeColorMeta">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Kvartira">
+  <title>Kvartira Boshqaruv</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icon-192.png">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ==================== ASOSIY ILOVA ==================== -->
+  <div id="appPage" class="app-page">
+
+    <!-- HEADER -->
+    <header class="app-header">
+      <h2 id="pageTitle">Asosiy</h2>
+      <div class="header-actions">
+        <button id="themeToggle" class="header-btn" title="Kunduz/Tun">🌙</button>
+        <button id="refreshBtn" class="header-btn" title="Yangilash">⟳</button>
+      </div>
+    </header>
+
+    <!-- KONTENT -->
+    <main id="appContent" class="app-content">
+      <div class="loading">
+        <div class="spinner"></div>
+        <div>Yuklanmoqda...</div>
+      </div>
+    </main>
+
+    <!-- TAB BAR -->
+    <nav class="tab-bar">
+      <button class="tab active" data-page="dashboard">
+        <span class="tab-icon">🏠</span>
+        <span class="tab-label">Asosiy</span>
+      </button>
+      <button class="tab" data-page="tenants">
+        <span class="tab-icon">👥</span>
+        <span class="tab-label">Ijarachilar</span>
+      </button>
+      <button class="tab" data-page="payments">
+        <span class="tab-icon">💰</span>
+        <span class="tab-label">To'lovlar</span>
+      </button>
+      <button class="tab" data-page="reminders">
+        <span class="tab-icon">🔔</span>
+        <span class="tab-label">Eslatma</span>
+      </button>
+      <button class="tab" data-page="settings">
+        <span class="tab-icon">⚙️</span>
+        <span class="tab-label">Sozlama</span>
+      </button>
+    </nav>
+
+  </div>
+
+  <!-- ==================== MODAL ==================== -->
+  <div id="modalOverlay" class="modal-overlay hidden">
+    <div id="modalBox" class="modal-box">
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <!-- ==================== TOAST ==================== -->
+  <div id="toast" class="toast hidden"></div>
+
+  <!-- ==================== SCRIPTS ==================== -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase.js"></script>
+  <script src="app.js"></script>
+
+  <!-- PWA: Service Worker -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker
+          .register('./sw.js')
+          .then((reg) => console.log('✅ Service Worker tayyor:', reg.scope))
+          .catch((err) => console.warn('⚠️ SW xatosi:', err));
+      });
+    }
+  </script>
+
+</body>
+</html>
